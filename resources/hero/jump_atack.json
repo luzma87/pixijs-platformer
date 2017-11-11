@@ -1,0 +1,60 @@
+{
+"frames": {
+	"Jump_Attack__000.png": {
+		"frame": {"x":486, "y":1058, "w":298, "h":485},
+		"spriteSourceSize": {"x":22,"y":27,"w":495,"h":583},
+		"sourceSize": {"w":495,"h":583}
+	},
+	"Jump_Attack__001.png": {
+		"frame": {"x":952, "y":1053, "w":288, "h":503},
+		"spriteSourceSize": {"x":18,"y":27,"w":495,"h":583},
+		"sourceSize": {"w":495,"h":583}
+	},
+	"Jump_Attack__002.png": {
+		"frame": {"x":1241, "y":1053, "w":287, "h":500},
+		"spriteSourceSize": {"x":15,"y":27,"w":495,"h":583},
+		"sourceSize": {"w":495,"h":583}
+	},
+	"Jump_Attack__003.png": {
+		"frame": {"x":486, "y":542, "w":465, "h":515},
+		"spriteSourceSize": {"x":30,"y":28,"w":495,"h":583},
+		"sourceSize": {"w":495,"h":583}
+	},
+	"Jump_Attack__004.png": {
+		"frame": {"x":952, "y":542, "w":465, "h":510},
+		"spriteSourceSize": {"x":30,"y":33,"w":495,"h":583},
+		"sourceSize": {"w":495,"h":583}
+	},
+	"Jump_Attack__005.png": {
+		"frame": {"x":486, "y":0, "w":483, "h":541},
+		"spriteSourceSize": {"x":12,"y":39,"w":495,"h":583},
+		"sourceSize": {"w":495,"h":583}
+	},
+	"Jump_Attack__006.png": {
+		"frame": {"x":0, "y":0, "w":485, "h":541},
+		"spriteSourceSize": {"x":10,"y":39,"w":495,"h":583},
+		"sourceSize": {"w":495,"h":583}
+	},
+	"Jump_Attack__007.png": {
+		"frame": {"x":0, "y":542, "w":485, "h":541},
+		"spriteSourceSize": {"x":10,"y":39,"w":495,"h":583},
+		"sourceSize": {"w":495,"h":583}
+	},
+	"Jump_Attack__008.png": {
+		"frame": {"x":970, "y":0, "w":314, "h":515},
+		"spriteSourceSize": {"x":30,"y":33,"w":495,"h":583},
+		"sourceSize": {"w":495,"h":583}
+	},
+	"Jump_Attack__009.png": {
+		"frame": {"x":0, "y":1084, "w":371, "h":475},
+		"spriteSourceSize": {"x":30,"y":29,"w":495,"h":583},
+		"sourceSize": {"w":495,"h":583}
+	}
+
+},
+"meta": {
+	"image": "jump_atack.png",
+	"size": {"w": 1529, "h": 1560},
+	"scale": "1"
+}
+}

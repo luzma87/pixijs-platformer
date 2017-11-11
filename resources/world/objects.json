@@ -1,0 +1,75 @@
+{
+"frames": {
+	"Bush_1": {
+		"frame": {"x":0, "y":302, "w":133, "h":65},
+		"spriteSourceSize": {"x":0,"y":0,"w":133,"h":65},
+		"sourceSize": {"w":133,"h":65}
+	},
+	"Bush_2": {
+		"frame": {"x":0, "y":368, "w":133, "h":65},
+		"spriteSourceSize": {"x":0,"y":0,"w":133,"h":65},
+		"sourceSize": {"w":133,"h":65}
+	},
+	"Bush_3": {
+		"frame": {"x":134, "y":302, "w":73, "h":47},
+		"spriteSourceSize": {"x":0,"y":0,"w":73,"h":47},
+		"sourceSize": {"w":73,"h":47}
+	},
+	"Bush_4": {
+		"frame": {"x":134, "y":350, "w":73, "h":46},
+		"spriteSourceSize": {"x":0,"y":0,"w":73,"h":46},
+		"sourceSize": {"w":73,"h":46}
+	},
+	"Crate": {
+		"frame": {"x":91, "y":479, "w":77, "h":77},
+		"spriteSourceSize": {"x":0,"y":0,"w":77,"h":77},
+		"sourceSize": {"w":77,"h":77}
+	},
+	"Mushroom_1": {
+		"frame": {"x":208, "y":302, "w":49, "h":41},
+		"spriteSourceSize": {"x":0,"y":0,"w":49,"h":41},
+		"sourceSize": {"w":49,"h":41}
+	},
+	"Mushroom_2": {
+		"frame": {"x":198, "y":397, "w":50, "h":41},
+		"spriteSourceSize": {"x":0,"y":0,"w":50,"h":41},
+		"sourceSize": {"w":50,"h":41}
+	},
+	"Sign_1": {
+		"frame": {"x":134, "y":397, "w":63, "h":65},
+		"spriteSourceSize": {"x":0,"y":0,"w":63,"h":65},
+		"sourceSize": {"w":63,"h":65}
+	},
+	"Sign_2": {
+		"frame": {"x":169, "y":463, "w":62, "h":64},
+		"spriteSourceSize": {"x":0,"y":0,"w":62,"h":64},
+		"sourceSize": {"w":62,"h":64}
+	},
+	"Stone": {
+		"frame": {"x":0, "y":479, "w":90, "h":54},
+		"spriteSourceSize": {"x":0,"y":0,"w":90,"h":54},
+		"sourceSize": {"w":90,"h":54}
+	},
+	"Tree_1": {
+		"frame": {"x":0, "y":434, "w":116, "h":44},
+		"spriteSourceSize": {"x":0,"y":0,"w":116,"h":44},
+		"sourceSize": {"w":116,"h":44}
+	},
+	"Tree_2": {
+		"frame": {"x":283, "y":0, "w":282, "h":301},
+		"spriteSourceSize": {"x":0,"y":0,"w":282,"h":301},
+		"sourceSize": {"w":282,"h":301}
+	},
+	"Tree_3": {
+		"frame": {"x":0, "y":0, "w":282, "h":275},
+		"spriteSourceSize": {"x":0,"y":0,"w":282,"h":275},
+		"sourceSize": {"w":282,"h":275}
+	}
+
+},
+"meta": {
+	"image": "objects.png",
+	"size": {"w": 566, "h": 557},
+	"scale": "1"
+}
+}

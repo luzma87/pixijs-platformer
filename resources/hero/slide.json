@@ -1,0 +1,60 @@
+{
+"frames": {
+	"Slide__000.png": {
+		"frame": {"x":0, "y":0, "w":394, "h":395},
+		"spriteSourceSize": {"x":2,"y":3,"w":397,"h":401},
+		"sourceSize": {"w":397,"h":401}
+	},
+	"Slide__001.png": {
+		"frame": {"x":0, "y":396, "w":392, "h":395},
+		"spriteSourceSize": {"x":4,"y":3,"w":397,"h":401},
+		"sourceSize": {"w":397,"h":401}
+	},
+	"Slide__002.png": {
+		"frame": {"x":395, "y":0, "w":390, "h":395},
+		"spriteSourceSize": {"x":6,"y":3,"w":397,"h":401},
+		"sourceSize": {"w":397,"h":401}
+	},
+	"Slide__003.png": {
+		"frame": {"x":782, "y":792, "w":388, "h":395},
+		"spriteSourceSize": {"x":8,"y":3,"w":397,"h":401},
+		"sourceSize": {"w":397,"h":401}
+	},
+	"Slide__004.png": {
+		"frame": {"x":1171, "y":397, "w":386, "h":396},
+		"spriteSourceSize": {"x":10,"y":2,"w":397,"h":401},
+		"sourceSize": {"w":397,"h":401}
+	},
+	"Slide__005.png": {
+		"frame": {"x":1171, "y":794, "w":385, "h":396},
+		"spriteSourceSize": {"x":11,"y":2,"w":397,"h":401},
+		"sourceSize": {"w":397,"h":401}
+	},
+	"Slide__006.png": {
+		"frame": {"x":786, "y":0, "w":386, "h":396},
+		"spriteSourceSize": {"x":10,"y":2,"w":397,"h":401},
+		"sourceSize": {"w":397,"h":401}
+	},
+	"Slide__007.png": {
+		"frame": {"x":393, "y":792, "w":388, "h":395},
+		"spriteSourceSize": {"x":8,"y":3,"w":397,"h":401},
+		"sourceSize": {"w":397,"h":401}
+	},
+	"Slide__008.png": {
+		"frame": {"x":393, "y":396, "w":390, "h":395},
+		"spriteSourceSize": {"x":6,"y":3,"w":397,"h":401},
+		"sourceSize": {"w":397,"h":401}
+	},
+	"Slide__009.png": {
+		"frame": {"x":0, "y":792, "w":392, "h":395},
+		"spriteSourceSize": {"x":4,"y":3,"w":397,"h":401},
+		"sourceSize": {"w":397,"h":401}
+	}
+
+},
+"meta": {
+	"image": "slide.png",
+	"size": {"w": 1558, "h": 1191},
+	"scale": "1"
+}
+}

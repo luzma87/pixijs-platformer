@@ -1,0 +1,85 @@
+{
+"frames": {
+	"full_beach-corner": {
+		"frame": {"x":130, "y":0, "w":128, "h":128},
+		"spriteSourceSize": {"x":0,"y":0,"w":128,"h":128},
+		"sourceSize": {"w":128,"h":128}
+	},
+	"full_beach-corner2": {
+		"frame": {"x":387, "y":258, "w":128, "h":128},
+		"spriteSourceSize": {"x":0,"y":0,"w":128,"h":128},
+		"sourceSize": {"w":128,"h":128}
+	},
+	"full_beach-edge-corner": {
+		"frame": {"x":387, "y":129, "w":128, "h":128},
+		"spriteSourceSize": {"x":0,"y":0,"w":128,"h":128},
+		"sourceSize": {"w":128,"h":128}
+	},
+	"full_beach-edge-corner2": {
+		"frame": {"x":259, "y":0, "w":128, "h":128},
+		"spriteSourceSize": {"x":0,"y":0,"w":128,"h":128},
+		"sourceSize": {"w":128,"h":128}
+	},
+	"full_dirt-beach-edge": {
+		"frame": {"x":0, "y":0, "w":129, "h":129},
+		"spriteSourceSize": {"x":0,"y":0,"w":129,"h":129},
+		"sourceSize": {"w":129,"h":129}
+	},
+	"full_dirt-beach-edge2": {
+		"frame": {"x":258, "y":258, "w":128, "h":128},
+		"spriteSourceSize": {"x":0,"y":0,"w":128,"h":128},
+		"sourceSize": {"w":128,"h":128}
+	},
+	"full_dirt-edge": {
+		"frame": {"x":258, "y":129, "w":128, "h":128},
+		"spriteSourceSize": {"x":0,"y":0,"w":128,"h":128},
+		"sourceSize": {"w":128,"h":128}
+	},
+	"full_dirt1": {
+		"frame": {"x":387, "y":387, "w":128, "h":128},
+		"spriteSourceSize": {"x":0,"y":0,"w":128,"h":128},
+		"sourceSize": {"w":128,"h":128}
+	},
+	"full_grass-top-corner": {
+		"frame": {"x":129, "y":388, "w":128, "h":128},
+		"spriteSourceSize": {"x":0,"y":0,"w":128,"h":128},
+		"sourceSize": {"w":128,"h":128}
+	},
+	"full_grass-top-edge": {
+		"frame": {"x":258, "y":387, "w":128, "h":128},
+		"spriteSourceSize": {"x":0,"y":0,"w":128,"h":128},
+		"sourceSize": {"w":128,"h":128}
+	},
+	"full_grass-top": {
+		"frame": {"x":129, "y":130, "w":128, "h":128},
+		"spriteSourceSize": {"x":0,"y":0,"w":128,"h":128},
+		"sourceSize": {"w":128,"h":128}
+	},
+	"full_water-waves": {
+		"frame": {"x":0, "y":318, "w":128, "h":99},
+		"spriteSourceSize": {"x":0,"y":0,"w":128,"h":99},
+		"sourceSize": {"w":128,"h":99}
+	},
+	"full_water": {
+		"frame": {"x":129, "y":259, "w":128, "h":128},
+		"spriteSourceSize": {"x":0,"y":0,"w":128,"h":128},
+		"sourceSize": {"w":128,"h":128}
+	},
+	"half_grass-top-edge": {
+		"frame": {"x":0, "y":224, "w":128, "h":93},
+		"spriteSourceSize": {"x":0,"y":0,"w":128,"h":93},
+		"sourceSize": {"w":128,"h":93}
+	},
+	"half_grass-top": {
+		"frame": {"x":0, "y":130, "w":128, "h":93},
+		"spriteSourceSize": {"x":0,"y":0,"w":128,"h":93},
+		"sourceSize": {"w":128,"h":93}
+	}
+
+},
+"meta": {
+	"image": "tiles.png",
+	"size": {"w": 516, "h": 517},
+	"scale": "1"
+}
+}

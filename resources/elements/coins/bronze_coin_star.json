@@ -1,0 +1,60 @@
+{
+"frames": {
+	"Bronze_21.png": {
+		"frame": {"x":0, "y":1130, "w":559, "h":564},
+		"spriteSourceSize": {"x":0,"y":0,"w":559,"h":564},
+		"sourceSize": {"w":559,"h":564}
+	},
+	"Bronze_22.png": {
+		"frame": {"x":564, "y":0, "w":503, "h":564},
+		"spriteSourceSize": {"x":0,"y":0,"w":503,"h":564},
+		"sourceSize": {"w":503,"h":564}
+	},
+	"Bronze_23.png": {
+		"frame": {"x":560, "y":1130, "w":428, "h":565},
+		"spriteSourceSize": {"x":0,"y":0,"w":428,"h":565},
+		"sourceSize": {"w":428,"h":565}
+	},
+	"Bronze_24.png": {
+		"frame": {"x":1065, "y":565, "w":262, "h":564},
+		"spriteSourceSize": {"x":0,"y":0,"w":262,"h":564},
+		"sourceSize": {"w":262,"h":564}
+	},
+	"Bronze_25.png": {
+		"frame": {"x":1328, "y":565, "w":108, "h":564},
+		"spriteSourceSize": {"x":0,"y":0,"w":108,"h":564},
+		"sourceSize": {"w":108,"h":564}
+	},
+	"Bronze_26.png": {
+		"frame": {"x":1068, "y":0, "w":262, "h":564},
+		"spriteSourceSize": {"x":0,"y":0,"w":262,"h":564},
+		"sourceSize": {"w":262,"h":564}
+	},
+	"Bronze_27.png": {
+		"frame": {"x":989, "y":1130, "w":428, "h":565},
+		"spriteSourceSize": {"x":0,"y":0,"w":428,"h":565},
+		"sourceSize": {"w":428,"h":565}
+	},
+	"Bronze_28.png": {
+		"frame": {"x":560, "y":565, "w":504, "h":564},
+		"spriteSourceSize": {"x":0,"y":0,"w":504,"h":564},
+		"sourceSize": {"w":504,"h":564}
+	},
+	"Bronze_29.png": {
+		"frame": {"x":0, "y":565, "w":559, "h":564},
+		"spriteSourceSize": {"x":0,"y":0,"w":559,"h":564},
+		"sourceSize": {"w":559,"h":564}
+	},
+	"Bronze_30.png": {
+		"frame": {"x":0, "y":0, "w":563, "h":564},
+		"spriteSourceSize": {"x":0,"y":0,"w":563,"h":564},
+		"sourceSize": {"w":563,"h":564}
+	}
+
+},
+"meta": {
+	"image": "bronze_coin_heart.png",
+	"size": {"w": 1437, "h": 1696},
+	"scale": "1"
+}
+}
