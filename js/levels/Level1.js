@@ -11,12 +11,13 @@ function Level1(stage) {
 }
 
 Level1.prototype.createFirstPlatform = function (spritesPool) {
+    let H = 'h';
     let level1 = [
         [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
         [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
         [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-        [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-        [1, 1, 1, 4, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+        [0, H, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+        [1, 1, 1, 4, 0, 0, 0, 0, H, 0, 0, 0, 0, 0],
         [2, 2, 2, 6, 0, 3, 1, 1, 1, 1, 1, 1, 1, 1]
     ];
 
@@ -26,9 +27,13 @@ Level1.prototype.createFirstPlatform = function (spritesPool) {
         for (let tileCount = 0; tileCount < row.length; tileCount++) {
             let tileType = row[tileCount];
             let x = tileCount * Tile.WIDTH;
-            let tile = spritesPool.getTile(tileType, x, y);
-            if (tile.sprite !== null) {
-                this.container.addChild(tile.sprite);
+            if (tileType !== H) {
+                let tile = spritesPool.getTile(tileType, x, y);
+                if (tile.sprite !== null) {
+                    this.container.addChild(tile.sprite);
+                }
+            } else {
+                new Hero(this.container, x, y);
             }
         }
     }

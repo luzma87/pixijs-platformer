@@ -24,7 +24,16 @@ Main.prototype.loadSpriteSheet = function () {
     let loader = PIXI.loader;
     loader.add([
         Background.TEXTURE_PATH,
-        Tile.TEXTURE_PATH
+        Tile.TEXTURE_PATH,
+        Hero.ATTACK_TEXTURE_PATH,
+        Hero.DEAD_TEXTURE_PATH,
+        Hero.IDLE_TEXTURE_PATH,
+        Hero.JUMP_TEXTURE_PATH,
+        Hero.JUMP_ATTACK_TEXTURE_PATH,
+        Hero.JUMP_THROW_TEXTURE_PATH,
+        Hero.RUN_TEXTURE_PATH,
+        Hero.SLIDE_TEXTURE_PATH,
+        Hero.THROW_TEXTURE_PATH
     ]);
     loader.once("complete", this.spriteSheetLoaded.bind(this));
     loader.load();
