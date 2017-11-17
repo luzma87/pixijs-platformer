@@ -23,6 +23,8 @@ Hero.ACTIONS = {
 };
 
 function Hero(stage, x, y) {
+    this.stage = stage;
+
     this.x = x;
     this.y = y;
 
@@ -50,7 +52,7 @@ function Hero(stage, x, y) {
 
     this.sprite.x += this.vx;
 
-    stage.addChild(this.sprite);
+    stage.container.addChild(this.sprite);
 }
 
 Hero.prototype.movements = function () {
@@ -79,6 +81,9 @@ Hero.prototype.update = function () {
     this.sprite.position.y = this.y;
 
     this.sprite.scale.x = this.facing === "left" ? -1 : 1;
+
+    let character = this;
+
 
 };
 

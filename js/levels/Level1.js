@@ -2,6 +2,8 @@ function Level1(stage) {
     this.container = new PIXI.Container();
     this.hero = null;
 
+    this.tiles = [];
+
     let spritesPool = new SpritesPool();
 
     new Background(this.container);
@@ -22,6 +24,9 @@ Level1.prototype.createFirstPlatform = function (spritesPool) {
         [2, 2, 2, 6, 0, 3, 1, 1, 1, 1, 1, 1, 1, 1]
     ];
 
+    let heroX = 0;
+    let heroY = 0;
+
     for (let rowCount = 0; rowCount < level1.length; rowCount++) {
         let row = level1[rowCount];
         let y = (rowCount + 1) * Tile.HEIGHT;
@@ -31,13 +36,20 @@ Level1.prototype.createFirstPlatform = function (spritesPool) {
             if (tileType !== H) {
                 let tile = spritesPool.getTile(tileType, x, y);
                 if (tile.sprite !== null) {
-                    this.container.addChild(tile.sprite);
+                    this.tiles.push(tile);
                 }
             } else {
-                this.hero = new Hero(this.container, x, y);
+                heroX = x;
+                heroY = y;
             }
         }
     }
+
+    for (let tileCount = 0; tileCount < this.tiles.length; tileCount++) {
+        let tile = this.tiles[tileCount];
+        this.container.addChild(tile.sprite);
+    }
+    this.hero = new Hero(this, heroX, heroY);
 };
 
 Level1.prototype.update = function () {
