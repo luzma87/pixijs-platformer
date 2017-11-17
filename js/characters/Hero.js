@@ -10,6 +10,18 @@ Hero.THROW_TEXTURE_PATH = "resources/ninjaGirl/throw.json";
 
 Hero.HEIGHT = Tile.HEIGHT;
 
+Hero.ACTIONS = {
+    ATTACK : "Attack",
+    DEAD : "Dead",
+    IDLE : "Idle",
+    JUMP : "Jump",
+    JUMP_ATTACK : "Jump_Attack",
+    JUMP_THROW : "Jump_Throw",
+    RUN : "Run",
+    SLIDE : "Slide",
+    THROW : "Throw"
+};
+
 function Hero(stage, x, y) {
     this.x = x;
     this.y = y;
@@ -19,7 +31,10 @@ function Hero(stage, x, y) {
 
     this.facing = "right";
 
-    this.sprite = new PIXI.extras.AnimatedSprite(this.getTexture("Run"));
+    this.action = Hero.ACTIONS.IDLE;
+    this.prevAction = Hero.ACTIONS.IDLE;
+
+    this.sprite = new PIXI.extras.AnimatedSprite(this.getTextureArray(this.action));
 
     let scale = getScale(Hero.HEIGHT, this.sprite.height);
 
@@ -28,58 +43,49 @@ function Hero(stage, x, y) {
     this.sprite.position.x = x + Hero.WIDTH / 2;
     this.sprite.position.y = y;// + Hero.HEIGHT/2;
     this.sprite.loop = true;
-    // this.sprite.anchor.set(0.5);
     this.sprite.animationSpeed = 0.2;
     this.sprite.play();
 
-    let keyLeft = keyboard(37);
-    let keyRight = keyboard(39);
-    let keyUp = keyboard(38);
-    let keyDown = keyboard(40);
-
-    let thisChar = this;
-    keyRight.press = function () {
-        thisChar.vx = 5;
-        thisChar.facing = "right";
-    };
-    keyRight.release = function () {
-        if (!keyLeft.isDown) {
-            thisChar.vx = 0;
-        }
-    };
-    keyLeft.press = function () {
-        thisChar.vx = -5;
-        thisChar.facing = "left";
-    };
-    keyLeft.release = function () {
-        if (!keyRight.isDown) {
-            thisChar.vx = 0;
-        }
-    };
+    this.movements();
 
     this.sprite.x += this.vx;
 
     stage.addChild(this.sprite);
 }
 
+Hero.prototype.movements = function () {
+    let keySpace = keyboard(32);
+
+    let keyUp = keyboard(38);
+    let keyDown = keyboard(40);
+
+    moveSideways(this);
+
+    let character = this;
+    keyUp.press = function () {
+        // character.action = Hero.ACTIONS.JUMP;
+    };
+};
+
 Hero.prototype.update = function () {
-    this.x += this.vx;
-    this.sprite.position.x = this.x;
-    this.sprite.scale.x = this.facing === "left" ? -1 : 1;
-};
-
-Hero.prototype.getTexture = function (type) {
-    type = type.toLowerCase();
-    switch (type) {
-        case "run":
-            return this.getRunTexture();
+    if (this.action !== this.prevAction) {
+        this.sprite.textures = this.getTextureArray(this.action);
+        this.prevAction = this.action;
     }
+    this.x += this.vx;
+    this.y += this.vy;
+
+    this.sprite.position.x = this.x;
+    this.sprite.position.y = this.y;
+
+    this.sprite.scale.x = this.facing === "left" ? -1 : 1;
+
 };
 
-Hero.prototype.getRunTexture = function () {
+Hero.prototype.getTextureArray = function (type) {
     let textureArray = [];
     for (let i = 0; i <= 9; i++) {
-        let texture = PIXI.Texture.fromFrame("Run__00" + i);
+        let texture = PIXI.Texture.fromFrame(type + "__00" + i);
         textureArray.push(texture);
     }
     return textureArray;
