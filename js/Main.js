@@ -3,6 +3,7 @@ Main.HEIGHT = 500;
 
 function Main() {
     this.stage = new PIXI.Container();
+    this.level1 = null;
 
     this.renderer = PIXI.autoDetectRenderer(
         Main.WIDTH,
@@ -18,6 +19,7 @@ function Main() {
 Main.prototype.update = function () {
     this.renderer.render(this.stage);
     requestAnimationFrame(this.update.bind(this));
+    this.level1.update();
 };
 
 Main.prototype.loadSpriteSheet = function () {
@@ -40,6 +42,6 @@ Main.prototype.loadSpriteSheet = function () {
 };
 
 Main.prototype.spriteSheetLoaded = function () {
-    new Level1(this.stage);
+    this.level1 = new Level1(this.stage);
     requestAnimationFrame(this.update.bind(this));
 };
