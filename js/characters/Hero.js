@@ -16,7 +16,7 @@ function Hero(stage, x, y) {
 
     let textureArray = [];
     for (let i = 0; i <= 9; i++) {
-        let texture = PIXI.Texture.fromFrame("Dead__00" + i);
+        let texture = PIXI.Texture.fromFrame("Run__00" + i);
         // texture.baseTexture.mipmap = true;
         textureArray.push(texture);
     }
@@ -26,11 +26,11 @@ function Hero(stage, x, y) {
 
     sprite.scale.set(scale);
     sprite.position.x = x;
-    sprite.position.y = y;
+    sprite.position.y = y;// + Hero.HEIGHT/2;
     sprite.loop = true;
+    // sprite.anchor.set(0.5);
     sprite.animationSpeed = 0.2;
     sprite.play();
-
 
     stage.addChild(sprite);
 }
