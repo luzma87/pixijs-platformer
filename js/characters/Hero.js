@@ -64,7 +64,7 @@ Hero.prototype.movements = function () {
     moveSideways(this);
 
     let character = this;
-    keyUp.press = function () {
+    keySpace.press = function () {
         // character.action = Hero.ACTIONS.JUMP;
     };
 };
@@ -82,9 +82,30 @@ Hero.prototype.update = function () {
 
     this.sprite.scale.x = this.facing === "left" ? -1 : 1;
 
-    let character = this;
+    this.checkFall();
+};
 
+Hero.prototype.checkFall = function () {
+    let transparentTiles = TileType.TRANSPARENT_TILES;
 
+    const tiles = this.stage.tiles;
+    for (let rowCount = 0; rowCount < tiles.length; rowCount++) {
+        let row = tiles[rowCount];
+        let firstTile = row[0];
+        if (firstTile.y - Hero.HEIGHT <= this.y && this.y < firstTile.y - Hero.HEIGHT + Tile.HEIGHT) {
+            for (let tileCount = 0; tileCount < row.length; tileCount++) {
+                let tile = row[tileCount];
+                if (tile.x <= this.x + 1 && this.x + 1 <= tile.x + Tile.WIDTH) {
+                    if (transparentTiles.indexOf(tile.type) !== -1) {
+                        this.vy = Level1.GRAVITY;
+                    } else {
+                        this.vy = 0;
+                    }
+                    break;
+                }
+            }
+        }
+    }
 };
 
 Hero.prototype.getTextureArray = function (type) {

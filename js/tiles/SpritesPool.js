@@ -3,8 +3,10 @@ function SpritesPool() {
 
 SpritesPool.prototype.getTile = function (tileType, x, y) {
     switch (tileType) {
+        case TileType.HERO_SPAWN :
+            return this.getHeroSpawn(x, y);
         case TileType.GAP :
-            return this.getGap();
+            return this.getGap(x, y);
         case TileType.FULL_FLOOR_GRASS_TOP:
             return this.getFullFloorGrassTop(x, y);
         case TileType.FULL_FLOOR_DIRT:
@@ -19,26 +21,27 @@ SpritesPool.prototype.getTile = function (tileType, x, y) {
             return this.getFullFloorGrassTopBackEdge(x, y);
     }
 };
+
 SpritesPool.prototype.getFullFloorGrassTop = function (x, y) {
-    let tile = new Tile(TileType.FULL_FLOOR_GRASS_TOP);
+    let tile = new Tile(TileType.FULL_FLOOR_GRASS_TOP, x, y);
     tile.sprite = this.getSprite("full_grass-top", x, y);
     return tile;
 };
 
 SpritesPool.prototype.getFullFloorDirt = function (x, y) {
-    let tile = new Tile(TileType.FULL_FLOOR_DIRT);
+    let tile = new Tile(TileType.FULL_FLOOR_DIRT, x, y);
     tile.sprite = this.getSprite("full_dirt1", x, y);
     return tile;
 };
 
 SpritesPool.prototype.getFullFloorGrassTopFrontEdge = function (x, y) {
-    let tile = new Tile(TileType.FULL_FLOOR_GRASS_TOP_FRONT_EDGE);
+    let tile = new Tile(TileType.FULL_FLOOR_GRASS_TOP_FRONT_EDGE, x, y);
     tile.sprite = this.getSprite("full_grass-top-edge", x, y);
     return tile;
 };
 
 SpritesPool.prototype.getFullFloorGrassTopBackEdge = function (x, y) {
-    let tile = new Tile(TileType.FULL_FLOOR_GRASS_TOP_FRONT_EDGE);
+    let tile = new Tile(TileType.FULL_FLOOR_GRASS_TOP_FRONT_EDGE, x, y);
     tile.sprite = this.getFlippedSprite("full_grass-top-edge", x, y);
     return tile;
 };
@@ -46,7 +49,7 @@ SpritesPool.prototype.getFullFloorGrassTopBackEdge = function (x, y) {
 SpritesPool.prototype.getFullFloorDirtFrontEdge = function (x, y) {
     let textures = ["full_dirt-beach-edge", "full_dirt-beach-edge2"];
     let texture = textures[getRandomInt(0, 1)];
-    let tile = new Tile(TileType.FULL_FLOOR_GRASS_TOP_FRONT_EDGE);
+    let tile = new Tile(TileType.FULL_FLOOR_GRASS_TOP_FRONT_EDGE, x, y);
     tile.sprite = this.getSprite(texture, x, y);
     return tile;
 };
@@ -54,13 +57,17 @@ SpritesPool.prototype.getFullFloorDirtFrontEdge = function (x, y) {
 SpritesPool.prototype.getFullFloorDirtBackEdge = function (x, y) {
     let textures = ["full_dirt-beach-edge", "full_dirt-beach-edge2"];
     let texture = textures[getRandomInt(0, 1)];
-    let tile = new Tile(TileType.FULL_FLOOR_GRASS_TOP_FRONT_EDGE);
+    let tile = new Tile(TileType.FULL_FLOOR_GRASS_TOP_FRONT_EDGE, x, y);
     tile.sprite = this.getFlippedSprite(texture, x, y);
     return tile;
 };
 
-SpritesPool.prototype.getGap = function () {
-    return new Tile(TileType.GAP);
+SpritesPool.prototype.getGap = function (x, y) {
+    return new Tile(TileType.GAP, x, y);
+};
+
+SpritesPool.prototype.getHeroSpawn = function (x, y) {
+    return new Tile(TileType.HERO_SPAWN, x, y);
 };
 
 SpritesPool.prototype.getSprite = function (texture, x, y) {
