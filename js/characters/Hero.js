@@ -1,16 +1,19 @@
-Hero.ATTACK_TEXTURE_PATH = "resources/ninjaGirl/attack.json";
-Hero.DEAD_TEXTURE_PATH = "resources/ninjaGirl/dead.json";
-Hero.IDLE_TEXTURE_PATH = "resources/ninjaGirl/idle.json";
-Hero.JUMP_TEXTURE_PATH = "resources/ninjaGirl/jump.json";
-Hero.JUMP_ATTACK_TEXTURE_PATH = "resources/ninjaGirl/jump_attack.json";
-Hero.JUMP_THROW_TEXTURE_PATH = "resources/ninjaGirl/jump_throw.json";
-Hero.RUN_TEXTURE_PATH = "resources/ninjaGirl/run.json";
-Hero.SLIDE_TEXTURE_PATH = "resources/ninjaGirl/slide.json";
-Hero.THROW_TEXTURE_PATH = "resources/ninjaGirl/throw.json";
+Hero.TEXTURES = {
+    ATTACK : "resources/ninjaGirl/attack.json",
+    DEAD : "resources/ninjaGirl/dead.json",
+    IDLE : "resources/ninjaGirl/idle.json",
+    JUMP : "resources/ninjaGirl/jump.json",
+    JUMP_ATTACK : "resources/ninjaGirl/jump_attack.json",
+    JUMP_THROW : "resources/ninjaGirl/jump_throw.json",
+    RUN : "resources/ninjaGirl/run.json",
+    SLIDE : "resources/ninjaGirl/slide.json",
+    THROW : "resources/ninjaGirl/throw.json",
+};
 
 Hero.HEIGHT = Tile.HEIGHT;
 Hero.SPEED_X = 5;
 Hero.SPEED_X_FALL = 2.5;
+Hero.JUMP_HEIGHT = 18;
 
 Hero.ACTIONS = {
     ATTACK : "Attack",
@@ -68,7 +71,10 @@ Hero.prototype.movements = function () {
 
     let character = this;
     keySpace.press = function () {
-        // character.action = Hero.ACTIONS.JUMP;
+        if (character.action !== Hero.ACTIONS.JUMP && character.action !== Hero.ACTIONS.FALL) {
+            character.action = Hero.ACTIONS.JUMP;
+            character.vy = -Hero.JUMP_HEIGHT;
+        }
     };
 };
 
@@ -77,6 +83,7 @@ Hero.prototype.update = function () {
         this.sprite.textures = this.getTextureArray(this.action);
         this.prevAction = this.action;
     }
+
     this.x += this.vx;
     this.y += this.vy;
 
@@ -100,16 +107,24 @@ Hero.prototype.checkFall = function () {
             for (let tileCount = 0; tileCount < row.length; tileCount++) {
                 let tile = row[tileCount];
                 if (tile.x <= this.x + 1 && this.x + 1 <= tile.x + Tile.WIDTH) {
-                    if (transparentTiles.indexOf(tile.type) !== -1) {
-                        this.vy = Level1.GRAVITY;
-                        this.action = Hero.ACTIONS.FALL;
-                    } else {
-                        this.vy = 0;
-                        if (this.action === Hero.ACTIONS.FALL) {
-                            this.action = Hero.ACTIONS.IDLE;
+                    if (this.action === Hero.ACTIONS.JUMP) {
+                        this.vy += (Level1.GRAVITY / 2);
+                        if (this.vy >= 0) {
+                            this.vy = Level1.GRAVITY;
+                            this.action = Hero.ACTIONS.FALL;
                         }
+                    } else {
+                        if (transparentTiles.indexOf(tile.type) !== -1) {
+                            this.vy = Level1.GRAVITY;
+                            this.action = Hero.ACTIONS.FALL;
+                        } else {
+                            this.vy = 0;
+                            if (this.action === Hero.ACTIONS.FALL) {
+                                this.action = Hero.ACTIONS.IDLE;
+                            }
+                        }
+                        break;
                     }
-                    break;
                 }
             }
         }
