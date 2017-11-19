@@ -1,11 +1,14 @@
-
 function moveSideways(character) {
     let keyRight = keyboard(39);
     let keyLeft = keyboard(37);
     keyRight.press = function () {
-        character.vx = 5;
+        character.vx = Hero.SPEED_X;
+        if (character.action === Hero.ACTIONS.FALL) {
+            character.vx = Hero.SPEED_X_FALL;
+        }
         character.facing = "right";
         character.action = Hero.ACTIONS.RUN;
+
     };
     keyRight.release = function () {
         if (!keyLeft.isDown) {
@@ -14,7 +17,10 @@ function moveSideways(character) {
         }
     };
     keyLeft.press = function () {
-        character.vx = -5;
+        character.vx = -Hero.SPEED_X;
+        if (character.action === Hero.ACTIONS.FALL) {
+            character.vx = -Hero.SPEED_X_FALL;
+        }
         character.facing = "left";
         character.action = Hero.ACTIONS.RUN;
     };

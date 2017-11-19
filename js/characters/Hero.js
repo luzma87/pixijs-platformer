@@ -9,6 +9,8 @@ Hero.SLIDE_TEXTURE_PATH = "resources/ninjaGirl/slide.json";
 Hero.THROW_TEXTURE_PATH = "resources/ninjaGirl/throw.json";
 
 Hero.HEIGHT = Tile.HEIGHT;
+Hero.SPEED_X = 5;
+Hero.SPEED_X_FALL = 2.5;
 
 Hero.ACTIONS = {
     ATTACK : "Attack",
@@ -19,7 +21,8 @@ Hero.ACTIONS = {
     JUMP_THROW : "Jump_Throw",
     RUN : "Run",
     SLIDE : "Slide",
-    THROW : "Throw"
+    THROW : "Throw",
+    FALL : "Fall"
 };
 
 function Hero(stage, x, y) {
@@ -92,14 +95,19 @@ Hero.prototype.checkFall = function () {
     for (let rowCount = 0; rowCount < tiles.length; rowCount++) {
         let row = tiles[rowCount];
         let firstTile = row[0];
-        if (firstTile.y - Hero.HEIGHT <= this.y && this.y < firstTile.y - Hero.HEIGHT + Tile.HEIGHT) {
+        let herosFeet = firstTile.y - 1 - Hero.HEIGHT;
+        if (herosFeet <= this.y && this.y < herosFeet + Tile.HEIGHT) {
             for (let tileCount = 0; tileCount < row.length; tileCount++) {
                 let tile = row[tileCount];
                 if (tile.x <= this.x + 1 && this.x + 1 <= tile.x + Tile.WIDTH) {
                     if (transparentTiles.indexOf(tile.type) !== -1) {
                         this.vy = Level1.GRAVITY;
+                        this.action = Hero.ACTIONS.FALL;
                     } else {
                         this.vy = 0;
+                        if (this.action === Hero.ACTIONS.FALL) {
+                            this.action = Hero.ACTIONS.IDLE;
+                        }
                     }
                     break;
                 }
@@ -110,9 +118,21 @@ Hero.prototype.checkFall = function () {
 
 Hero.prototype.getTextureArray = function (type) {
     let textureArray = [];
-    for (let i = 0; i <= 9; i++) {
-        let texture = PIXI.Texture.fromFrame(type + "__00" + i);
-        textureArray.push(texture);
+    let texture;
+    if (type === Hero.ACTIONS.FALL) {
+        for (let i = 0; i < 2; i++) {
+            texture = PIXI.Texture.fromFrame("Jump__006");
+            textureArray.push(texture);
+        }
+        for (let i = 0; i < 2; i++) {
+            texture = PIXI.Texture.fromFrame("Jump__007");
+            textureArray.push(texture);
+        }
+    } else {
+        for (let i = 0; i <= 9; i++) {
+            texture = PIXI.Texture.fromFrame(type + "__00" + i);
+            textureArray.push(texture);
+        }
     }
     return textureArray;
 };
