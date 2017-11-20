@@ -91,6 +91,9 @@ Hero.prototype.checkFall = function () {
     let transparentTiles = TileType.TRANSPARENT_TILES;
     let killingTiles = TileType.KILLING_TILES;
 
+    let keyRight = keyboard(39);
+    let keyLeft = keyboard(37);
+
     const tiles = this.stage.tiles;
     for (let rowCount = 0; rowCount < tiles.length; rowCount++) {
         let row = tiles[rowCount];
@@ -120,7 +123,26 @@ Hero.prototype.checkFall = function () {
                         } else {
                             this.vy = 0;
                             if (this.action === Hero.ACTIONS.FALL) {
-                                this.action = Hero.ACTIONS.IDLE;
+                                if (keyRight.isDown) {
+                                    console.log("right");
+                                    this.vx = Hero.SPEED_X;
+                                    if (this.action === Hero.ACTIONS.FALL) {
+                                        this.vx = Hero.SPEED_X_FALL;
+                                    }
+                                    this.facing = "right";
+                                    this.action = Hero.ACTIONS.RUN;
+                                } else if (keyLeft.isDown) {
+                                    console.log("left");
+                                    this.vx = -Hero.SPEED_X;
+                                    if (this.action === Hero.ACTIONS.FALL) {
+                                        this.vx = -Hero.SPEED_X_FALL;
+                                    }
+                                    this.facing = "left";
+                                    this.action = Hero.ACTIONS.RUN;
+                                } else {
+                                    console.log("idle");
+                                    this.action = Hero.ACTIONS.IDLE;
+                                }
                             }
                         }
                         break;
