@@ -12,6 +12,7 @@ Hero.TEXTURES = {
 
 Hero.HEIGHT = Tile.HEIGHT;
 Hero.SPEED_X = 5;
+Hero.SPEED_X_SLIDE = 8;
 Hero.SPEED_X_FALL = 2.5;
 Hero.JUMP_HEIGHT = 18;
 
@@ -33,6 +34,8 @@ function Hero(stage, x, y) {
 
     this.x = x;
     this.y = y;
+
+    this.prevY = null;
 
     this.vx = 0;
     this.vy = 0;
@@ -62,20 +65,9 @@ function Hero(stage, x, y) {
 }
 
 Hero.prototype.movements = function () {
-    let keySpace = keyboard(32);
-
-    let keyUp = keyboard(38);
-    let keyDown = keyboard(40);
-
-    moveSideways(this);
-
-    let character = this;
-    keySpace.press = function () {
-        if (character.action !== Hero.ACTIONS.JUMP && character.action !== Hero.ACTIONS.FALL) {
-            character.action = Hero.ACTIONS.JUMP;
-            character.vy = -Hero.JUMP_HEIGHT;
-        }
-    };
+    canMoveSideways(this);
+    canSlide(this);
+    canJump(this);
 };
 
 Hero.prototype.update = function () {
