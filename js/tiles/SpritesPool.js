@@ -19,7 +19,15 @@ SpritesPool.prototype.getTile = function (tileType, x, y) {
             return this.getFullFloorGrassTopFrontEdge(x, y);
         case TileType.FULL_FLOOR_GRASS_TOP_BACK_EDGE:
             return this.getFullFloorGrassTopBackEdge(x, y);
+        case TileType.FULL_WATER_WAVES:
+            return this.getFullWaterWaves(x, y);
     }
+};
+
+SpritesPool.prototype.getFullWaterWaves = function (x, y) {
+    let tile = new Tile(TileType.FULL_WATER_WAVES, x, y);
+    tile.sprite = this.getSprite("full_water-waves", x, y + Tile.HEIGHT / 4);
+    return tile;
 };
 
 SpritesPool.prototype.getFullFloorGrassTop = function (x, y) {

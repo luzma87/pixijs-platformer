@@ -89,6 +89,7 @@ Hero.prototype.update = function () {
 
 Hero.prototype.checkFall = function () {
     let transparentTiles = TileType.TRANSPARENT_TILES;
+    let killingTiles = TileType.KILLING_TILES;
 
     const tiles = this.stage.tiles;
     for (let rowCount = 0; rowCount < tiles.length; rowCount++) {
@@ -109,6 +110,13 @@ Hero.prototype.checkFall = function () {
                         if (transparentTiles.indexOf(tile.type) !== -1) {
                             this.vy = Level1.GRAVITY;
                             this.action = Hero.ACTIONS.FALL;
+                        } else if (killingTiles.indexOf(tile.type) !== -1) {
+                            if (this.prevY === null) {
+                                this.prevY = this.y;
+                            }
+                            this.y = this.prevY + Hero.HEIGHT / 1.5;
+                            this.action = Hero.ACTIONS.DEAD;
+
                         } else {
                             this.vy = 0;
                             if (this.action === Hero.ACTIONS.FALL) {
@@ -139,6 +147,11 @@ Hero.prototype.getTextureArray = function (type) {
         for (let i = 0; i <= 9; i++) {
             texture = PIXI.Texture.fromFrame(type + "__00" + i);
             textureArray.push(texture);
+        }
+        if (type === Hero.ACTIONS.DEAD) {
+            this.sprite.loop = false;
+            this.vx = 0;
+            this.vy = 0;
         }
     }
     return textureArray;
