@@ -14,7 +14,7 @@ Hero.HEIGHT = Tile.HEIGHT;
 Hero.SPEED_X = 5;
 Hero.SPEED_X_SLIDE = 8;
 Hero.SPEED_X_FALL = 2.5;
-Hero.JUMP_HEIGHT = 18;
+Hero.JUMP_HEIGHT = 25;
 
 Hero.ACTIONS = {
     ATTACK : "Attack",
